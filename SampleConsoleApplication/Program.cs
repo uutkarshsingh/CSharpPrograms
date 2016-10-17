@@ -50,10 +50,81 @@ namespace SampleConsoleApplication
             return "THE STATIC CLASS WHICH GIVES THE CONTROL ";
         }
     }
+
+
+    public class LinkNode<T>
+    {
+        public T value; 
+
+        public LinkNode<T> next { get; set; }
+
+        public LinkNode(T valueMember)
+        {
+            Console.WriteLine("CREATING A NEW NODE");
+            value = valueMember;
+        }
+    }
+
+
+    public class LinkedList<T>
+    {
+        LinkNode<T> Start { get; set; }
+        LinkNode<T> Last { get; set; }
+        public LinkedList()
+        {
+            Start = Last = null;            
+        }
+        public void Add(T value)
+        {
+            if (Start == null && Last == null)
+            {
+                Console.WriteLine("INITIAL");
+                Start = new LinkNode<T>(value);
+                Last = Start;
+                Last.next = null;
+            }
+            else
+            {
+                Console.WriteLine("adding to the end");
+                Last.next = new LinkNode<T>(value);
+                Last = Last.next;
+            }    
+        }
+
+        public void Display()
+        {
+            if (Start == null && Last == null)
+            {
+                Console.WriteLine("The liknedLIst is empty");
+            }
+
+            LinkNode<T> traversingNode = Start;
+            while (traversingNode != null)
+            {
+                Console.WriteLine(traversingNode.value);
+                traversingNode = traversingNode.next;
+
+            }
+
+        }
+
+    }
     class Program
     {
         static void Main(string[] args)
         {
+            LinkedList<string> list = new LinkedList<string>();
+
+            list.Add("utkarsh");
+            list.Add("Pragati");
+            list.Add("Ramesh");
+
+            list.Add("utkarsh");
+            list.Add("Pragati");
+            list.Add("Ramesh");
+            
+            list.Display();
+
             Person personExample = new Person()
             {
                 FirstName = "Utkarsh",
