@@ -18,26 +18,59 @@ namespace SampleConsoleApplication
             Length = leangth;
             Breadth = breadth;
         }
+
+       
+    }
+
+
+    class StaticClass
+    {
+        static StaticClass()
+        {
+            Console.WriteLine("calling the contructor FOR STATICCLASS");
+        }
+
+        public static void customMethod()
+        {
+            Console.WriteLine("CALLING THE CUSTOM METHOD"); 
+        }
+        public override int GetHashCode()
+        {
+
+            Console.WriteLine("PRINTG THE FIRST HASHCODE");
+            Console.WriteLine(base.GetHashCode());
+            Console.WriteLine("THE HASCODE IS GEIVEN ABOVE");
+            return 123456;
+        }
+
+        public override string ToString()
+        {
+            Console.WriteLine("CALLINF THE STRING METHOD TO THE CLASS");
+
+            return "THE STATIC CLASS WHICH GIVES THE CONTROL ";
+        }
     }
     class Program
     {
         static void Main(string[] args)
         {
+            Person personExample = new Person()
+            {
+                FirstName = "Utkarsh",
+                LastName = "Rathor"
+            };
 
+            personExample.printNameofPerson();
 
-            Dimension dimension2;
-            dimension2.Length = 21;
-            dimension2.Breadth = 100;
+            StaticClass.customMethod();
 
-            System.Console.WriteLine(dimension2.Breadth);
-            Console.WriteLine(dimension2.Length);
+            StaticClass staticClass = new StaticClass();
 
-            System.ValueType atr ;
+            Console.WriteLine(staticClass);
 
-            Dimension dimension1 = new Dimension();
-            int vaa = dimension1.Length;
-            Console.WriteLine("PRINTGINT SOMEVALUS FOR SHOWING ON THE SCREEN");
-            Console.ReadKey();
+            Console.WriteLine(staticClass.GetHashCode());
+
+            Console.ReadLine();
         }
     }
 }
