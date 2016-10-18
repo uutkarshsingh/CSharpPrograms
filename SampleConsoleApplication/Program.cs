@@ -78,14 +78,12 @@ namespace SampleConsoleApplication
         {
             if (Start == null && Last == null)
             {
-                Console.WriteLine("INITIAL");
                 Start = new LinkNode<T>(value);
                 Last = Start;
                 Last.next = null;
             }
             else
             {
-                Console.WriteLine("adding to the end");
                 Last.next = new LinkNode<T>(value);
                 Last = Last.next;
             }    
