@@ -107,6 +107,20 @@ namespace SampleConsoleApplication
         }
 
     }
+	public class DocumentManager<T>
+	{
+		private readonly Queue<T> documentQueue = new Queue<T>();
+
+		public void AddDocument(T doc)
+		{
+			documentQueue.Enqueue(doc);
+		}
+
+		public bool IsDocumentPresent
+		{ 
+			get { return documentQueue.Count > 0; }
+		}
+	}
     class Program
     {
         static void Main(string[] args)
