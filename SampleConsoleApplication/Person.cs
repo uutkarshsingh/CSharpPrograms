@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace SampleConsoleApplication
 {
-    public class Person
+	public class Person
     {
         public string FirstName;
         public string LastName;
 
+		//public IEnumerator<Person> GetEnumerator()
+		//{ 
+		
+		//}
 
     }
 }
