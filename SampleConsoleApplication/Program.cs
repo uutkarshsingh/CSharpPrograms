@@ -172,6 +172,27 @@ namespace SampleConsoleApplication
         {
 
 
+			List<int> listOfInts = new List<int>();
+
+			listOfInts.Add(12);
+			listOfInts.Add(321);
+			listOfInts.Add(432);
+
+			IEnumerator<int> enumerator = listOfInts.GetEnumerator();
+
+			Console.WriteLine(enumerator.Current);
+			Console.WriteLine(enumerator.MoveNext());
+			Console.WriteLine(enumerator.Current);
+			Console.WriteLine(enumerator.MoveNext());
+			Console.WriteLine(enumerator.Current);
+			Console.WriteLine(enumerator.MoveNext());
+			Console.WriteLine(enumerator.Current);
+			Console.WriteLine(enumerator.MoveNext());
+			Console.WriteLine(enumerator.Current);
+			Console.WriteLine(enumerator.MoveNext());
+			Console.WriteLine(enumerator.Current);
+			Console.WriteLine(enumerator.MoveNext());
+			Console.WriteLine(enumerator.Current);
 
 			List<Person> listOfPerson = new List<Person>();
 
@@ -186,7 +207,7 @@ namespace SampleConsoleApplication
 				Console.WriteLine(person.FirstName + " " +person.LastName);
 			}
 
-			Person[] personArray = new Person[2];
+				Person[] personArray = new Person[2];
 
 			Console.WriteLine(personArray);
 
