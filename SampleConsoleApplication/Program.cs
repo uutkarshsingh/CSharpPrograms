@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace SampleConsoleApplication
 {
 
+
+
 	struct Dimension
 	{
 		public int Length;
@@ -166,106 +168,33 @@ namespace SampleConsoleApplication
 		}
 		
 	}
+
+
+	public class House
+	{
+		public string Name { get;  set;}
+		public string Address { get;  set;}
+
+		public override string ToString()
+		{
+			return string.Format("[House: Name={0}, Address={1}]", Name, Address);
+		}
+	}
     class Program
     {
         static void Main(string[] args)
         {
+			List<House> ListOfHouses = new List<House>();
 
+			ListOfHouses.Add(new House() { Name = "White House", Address = " Capitol hill, Washington DC,California" } );
+			ListOfHouses.Add(new House() { Name = "Prime Minister's Residence" ,Address = "10 , Downing Street"});
 
-			List<int> listOfInts = new List<int>();
-
-			listOfInts.Add(12);
-			listOfInts.Add(321);
-			listOfInts.Add(432);
-
-			IEnumerator<int> enumerator = listOfInts.GetEnumerator();
-
-			Console.WriteLine(enumerator.Current);
-			Console.WriteLine(enumerator.MoveNext());
-			Console.WriteLine(enumerator.Current);
-			Console.WriteLine(enumerator.MoveNext());
-			Console.WriteLine(enumerator.Current);
-			Console.WriteLine(enumerator.MoveNext());
-			Console.WriteLine(enumerator.Current);
-			Console.WriteLine(enumerator.MoveNext());
-			Console.WriteLine(enumerator.Current);
-			Console.WriteLine(enumerator.MoveNext());
-			Console.WriteLine(enumerator.Current);
-			Console.WriteLine(enumerator.MoveNext());
-			Console.WriteLine(enumerator.Current);
-
-			List<Person> listOfPerson = new List<Person>();
-
-			listOfPerson.Add(new Person() { FirstName = "Utkarsh", LastName = "Rathor" }) ;
-			listOfPerson.Add(new Person() { FirstName = "Vivek", LastName = "Sharma" });
-			listOfPerson.Add(new Person() { FirstName = "Ranil", LastName = "VikramSinghe" });
-
-
-
-			foreach ( Person person in listOfPerson )
+			for (int count = 0; count < ListOfHouses.Count; count++)
 			{ 
-				Console.WriteLine(person.FirstName + " " +person.LastName);
+				Console.WriteLine(ListOfHouses[count]);
 			}
 
-				Person[] personArray = new Person[2];
-
-			Console.WriteLine(personArray);
-
-			personArray[0] = new Person() { FirstName = "Utkarsh", LastName = "Rathor" };
-			personArray[1] = new Person() { FirstName = "Pragati", LastName = "Rathor" };
-
-
-
-
-			Console.WriteLine(personArray[0]);
-			Console.WriteLine(personArray[1]);
-
-			Person personExample1 = new Person()
-			{
-				FirstName = "Utkarsh",
-				LastName = "Rathor"
-			};
-			int a = 10, b = 111;
-			Console.WriteLine(a + "  " +b);
-			personExample1.Swap(ref a, ref b);
-			Console.WriteLine(a + " " + b);
-
-
-			var dm = new DocumentManager<Document>();
-			dm.AddDocument(new Document() { Title = "ABC",Content="new content"});
-			dm.AddDocument(new Document() { Title = "PQR", Content = "Once upon a time" });
-			dm.AddDocument(new Document() { Title="SHERLOCK HOLMES" ,Content ="Sir Aurthus doyle"});
-			dm.DisplayAllDocuments();
-
-            LinkedList<string> list = new LinkedList<string>();
-
-            list.Add("utkarsh");
-            list.Add("Pragati");
-            list.Add("Ramesh");
-
-            list.Add("utkarsh");
-            list.Add("Pragati");
-            list.Add("Ramesh");
-            
-            list.Display();
-
-            Person personExample = new Person()
-            {
-                FirstName = "Utkarsh",
-                LastName = "Rathor"
-            };
-
-            personExample.printNameofPerson();
-
-            StaticClass.customMethod();
-
-            StaticClass staticClass = new StaticClass();
-
-            Console.WriteLine(staticClass);
-
-            Console.WriteLine(staticClass.GetHashCode());
-
-            Console.ReadLine();
+			Console.ReadLine();
         }
     }
 }
